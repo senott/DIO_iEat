@@ -1,2 +1,19 @@
 <h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+      <th>Restaurant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |p| %>
+      <t>
+        <th><%= p.name %></th>
+        <th><%= p.value %></th>
+        <th><%= p.restaurant.name %></th>
+      </t>
+    <% end %>
+  </tbody>
+</table>
