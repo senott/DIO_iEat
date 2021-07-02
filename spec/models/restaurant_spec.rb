@@ -3,13 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe Restaurant do
+  it { should have_many(:products) }
+
+  it { should validate_presence_of :name }
+
   context 'products total' do
+    let!(:restaurant) { create(:restaurant) }
+
+    let!(:products) { create_list(:product, 2, restaurant: restaurant) }
+
     it 'returns number of products for a restaurant' do
-      restaurant = Restaurant.create(name: 'Restaurant 1', address: 'Address 1')
-
-      product1 = Product.create(name: 'Pizza', value: 59.9, restaurant: restaurant)
-      product2 = Product.create(name: 'Pasta', value: 19.9, restaurant: restaurant)
-
       expect(restaurant.products_total).to eq 2
     end
   end
