@@ -1,0 +1,25 @@
+<p>Seus produtos, <%= @restaurant.name %></p>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Nome
+      </th>
+      <th>
+        Valor
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products&.each do |product| %>
+      <tr>
+        <td>
+          <%= product.name %>
+        </td>
+        <td>
+          <%= product.value %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
